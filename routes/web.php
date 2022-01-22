@@ -28,6 +28,6 @@ Route::get('/sobre-nos', 'SobreNosController@sobreNos');
 Route::get('/contato', 'ContatoController@contato');
 
 //tipagem das variáveis no PHP 7 pode evitar erros no código
-Route::get('/contato/{nome}/{sobrenome}/{mensagem?}', function(string $nome, string $sobrenome, string $mensagem ='Mensagem não informada.'){
-    echo "Estamos aqui $nome  $sobrenome - $mensagem";
-});
+Route::get('/contato/{nome}/{categoria_id}', function(string $nome, int $categoria_id = 1){
+    echo "Estamos aqui $nome - $categoria_id";
+})-> where('categoria_id','[0-9]+')-> where('nome','[A-Za-z]+');
