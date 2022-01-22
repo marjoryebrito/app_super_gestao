@@ -21,23 +21,25 @@ use Illuminate\Support\Facades\Route;
 /*Na versão 8.x do Laravel utilizar:
 Route::get('/', [\App\Http\Controller\PrincipalController::class, 'principal']);
 */
-Route::get('/', 'PrincipalController@principal');
 
-Route::get('/sobre-nos', 'SobreNosController@sobreNos');
 
-Route::get('/contato', 'ContatoController@contato');
+Route::get('/', 'PrincipalController@principal')-> name('site.index');
 
-Route::get('/login', function(){return 'Login';});
+Route::get('/sobre-nos', 'SobreNosController@sobreNos')-> name('site.sobrenos');
+
+Route::get('/contato', 'ContatoController@contato')-> name('site.contato');
+
+Route::get('/login', function(){return 'Login';})-> name('site.login');
 
 
 //Agrupamento de rotas
 Route::prefix('/app')-> group(function(){
 
-    Route::get('/clientes', function(){return 'Clientes';});
+    Route::get('/clientes', function(){return 'Clientes';})-> name('app.clientes');
 
-    Route::get('/fornecedores', function(){return 'Fornecedores';});
+    Route::get('/fornecedores', function(){return 'Fornecedores';})-> name('app.fornecedores');
     
-    Route::get('/produtos', function(){return 'Produtos';});
+    Route::get('/produtos', function(){return 'Produtos';})-> name('app.produtos');
 
 });
 
