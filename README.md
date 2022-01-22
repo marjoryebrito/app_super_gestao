@@ -4,5 +4,4 @@
 
 <h3>Versões das tecnologias utilizadas</h3>
 <li>PHP 7.4</li>
-<li>Laravel 7 </li>
-
+<li>Laravel 7.30.6 </li>
