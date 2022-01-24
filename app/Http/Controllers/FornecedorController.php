@@ -11,11 +11,20 @@ class FornecedorController extends Controller
         $fornecedores  = [
             0 => ['nome' => 'Fornecedor 1', 
                   'status' => 'N', 
-                  'cnpj' => ''
+                  'cnpj' => '',
+                  'ddd' => '11',
+                  'telefone' => '0000-0000'
         ],
             1 => ['nome' => 'Fornecedor 2', 
-                    'status' => 'S'
-                 ]
+                    'status' => 'S',
+                    'ddd' => '85',
+                    'telefone' => '0000-0000'
+       ],
+            2 => ['nome' => 'Fornecedor 3', 
+                    'status' => 'S',
+                    'ddd' => '32',
+                    'telefone' => '0000-0000'
+        ]
         ];
 
 
