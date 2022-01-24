@@ -4,21 +4,19 @@
 
 @php
 
-//Para comentários de 1 linha
+//enquanto o if() executa se o retirno for true
 
-/*
-Para comentários com mais de 1 linha
-*/
-echo "Texto de teste";
+
+
 @endphp
 
-{{-- @dd($fornecedores) // exibindo array através do Blade--}}
+{{-- O @unless executa se o retorno for false --}}
 
 
-@if(count($fornecedores) > 0 && count($fornecedores) < 10)
-    <h3>Existem alguns fornecedores cadastrados</h3>
-@elseif(count($fornecedores) > 10)
-    <h3>Existem vários fornecedores cadastrados</h3>
-@else
-    <h3>Ainda não existem fornecedores cadastrados</h3>    
-@endif    
+
+Fornecedor: {{$fornecedores[0]['nome']}} <br/>
+Status: {{$fornecedores[0]['status']}}<br/>
+
+@unless($fornecedores[0]['status'] == 'S')
+    Fornecedor inativo
+@endunless    
