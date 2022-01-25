@@ -16,35 +16,15 @@
 
 @isset($fornecedores) 
 
-Fornecedor: {{$fornecedores[0]['nome']}} <br/>
+@for ($i = 0 ; isset($fornecedores[$i]); $i++)
 
-Status: {{$fornecedores[0]['status']}}<br/>
+Fornecedor: {{$fornecedores[$i]['nome']}} <br/>
 
-CNPJ: {{ $fornecedores[0]['cnpj'] ?? 'Dado não preenchido.' }}
+Status: {{$fornecedores[$i]['status']}}<br/>
 
-Telefone: ({{ $fornecedores[0]['ddd'] ?? '' }}) {{ $fornecedores[0]['telefone'] ?? '' }}
+CNPJ: {{ $fornecedores[$i]['cnpj'] ?? 'Dado não preenchido.' }}
 
-@switch($fornecedores[0]['ddd'])
-    @case ('11')
-    São Paulo - SP
-    @break;
-
-    @case ('85')
-    Fortaleza - CE
-    @break;
-
-    @case ('32')
-    Juiz de Fora - MG
-    @break;
-    @default
-    Estado não identificado.
-@endswitch
-
-
-<!--
-$variável testado não estiver definida
-ou
-$variável testada possuir o valor null
--->
-
+Telefone: ({{ $fornecedores[$i]['ddd'] ?? '' }}) {{ $fornecedores[$i]['telefone'] ?? '' }}
+<hr>
+@endfor
 @endisset
