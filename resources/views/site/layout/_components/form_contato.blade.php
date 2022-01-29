@@ -1,7 +1,7 @@
 {{$slot}} {{--variável que tem os dados passados pelo @component na view--}}
 <form action="{{ route('site.contato') }}" method="post">
 @csrf
-    <input name="nome" value="{{ old('name')}}" type="text" placeholder="Nome" class="{{$classe}}">
+    <input name="nome" value="{{ old('nome')}}" type="text" placeholder="Nome" class="{{$classe}}">
     <br>
     <input name="telefone" value="{{ old('telefone')}}" type="text" placeholder="Telefone" class="{{$classe}}">
     <br>

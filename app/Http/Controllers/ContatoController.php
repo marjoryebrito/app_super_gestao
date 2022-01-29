@@ -15,7 +15,7 @@ class ContatoController extends Controller
             'nome'=> 'required|min:3|max:40', // Nomes com no min 3 caracteres e no máx 40.
 
             'telefone'=>'required',
-            'email'=>'email',
+            'email'=>'email|unique:site_contatos',
             'motivo_contatos_id'=>'required',
             'mensagem'=>'required'
         ]);
