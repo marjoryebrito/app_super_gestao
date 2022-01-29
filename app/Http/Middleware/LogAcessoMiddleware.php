@@ -16,13 +16,16 @@ class LogAcessoMiddleware
      */
     public function handle($request, Closure $next)
     {
-       // return $next($request);
+       
 
        $ip = $request->server->get('REMOTE_ADDR');
        $rota = $request->getRequestUri();
 
        LogAcesso::create(['log' => "IP $ip Requisitou a rota $rota"]);
-       return Response('Chegamos no Middleware e finalizamos no próprio.');
+
+       return $next($request);
+
+      ///return Response('Chegamos no Middleware e finalizamos no próprio.');
 
     }
 }
