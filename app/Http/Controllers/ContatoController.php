@@ -11,12 +11,12 @@ class ContatoController extends Controller
     public function salvar(Request $request){
 
         $request->validate([
-            'nome'=> 'required|min:3|max:40' // Nomes com no min 3 caracteres e no máx 40.
+            'nome'=> 'required|min:3|max:40', // Nomes com no min 3 caracteres e no máx 40.
 
-           /* 'telefone'=>'required',
+            'telefone'=>'required',
             'email'=>'required',
             'motivo_contato'=>'required',
-            'mensagem'=>'required'*/
+            'mensagem'=>'required'
         ]);
 
         //SiteContato::create($request->all());
