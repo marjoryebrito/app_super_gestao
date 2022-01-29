@@ -8,9 +8,20 @@ use \App\SiteContato;
 class ContatoController extends Controller
 {
 
-    
+    public function salvar(Request $request){
 
-    public function contato(Request $request){
+        $request->validate([
+            'nome'=> 'required',
+            'telefone'=>'required',
+            'email'=>'required',
+            'motivo_contato'=>'required',
+            'mensagem'=>'required'
+        ]);
+
+        //SiteContato::create($request->all());
+    }
+
+    public function contato(){
 
 
 
@@ -28,9 +39,9 @@ class ContatoController extends Controller
     $contato->save();*/
 
     //Opção 2:
-    $contato = new SiteContato();
+    /*$contato = new SiteContato();
     $contato-> fill($request->all()); //necessário declarar $fillable no Model SiteContato
-    $contato->save();
+    $contato->save();*/
 
         return view('site.contato', ['titulo' => 'contato (teste)']);
     }
