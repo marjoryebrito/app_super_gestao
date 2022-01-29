@@ -2,6 +2,7 @@
 
 <p>Projeto em PHP criado a partir do framework Laravel</p>
 
-<h3>Versões das tecnologias utilizadas</h3>
+<h3>Tecnologias utilizadas</h3>
 <li>PHP 7.4</li>
 <li>Laravel 7.30.6 </li>
+<li>MySql </li>
