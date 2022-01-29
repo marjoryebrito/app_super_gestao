@@ -24,7 +24,11 @@ class ContatoController extends Controller
 
     public function contato(){
 
-
+        $motivos_contato =[
+            '1'=>'Dúvida',
+            '2'=>'Elogio',
+            '3'=>'Reclamação'
+        ];
 
    /*  
     //Opção 1:
@@ -44,6 +48,6 @@ class ContatoController extends Controller
     $contato-> fill($request->all()); //necessário declarar $fillable no Model SiteContato
     $contato->save();*/
 
-        return view('site.contato', ['titulo' => 'contato (teste)']);
+        return view('site.contato', ['titulo' => 'contato (teste)', 'motivos_contato'=>$motivos_contato]);
     }
 }
