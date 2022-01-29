@@ -3,17 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\MotivoContato;
 
 class PrincipalController extends Controller
 {
     public function principal(){
 
-        $motivos_contato =[
-            '1'=>'Dúvida',
-            '2'=>'Elogio',
-            '3'=>'Reclamação'
-        ];
-        
+        $motivos_contato = MotivoContato::all();
+
         return view('site.principal', ['motivos_contato'=>$motivos_contato]);
     }
 }
