@@ -16,11 +16,12 @@ class ContatoController extends Controller
 
             'telefone'=>'required',
             'email'=>'email',
-            'motivo_contato'=>'required',
+            'motivo_contatos_id'=>'required',
             'mensagem'=>'required'
         ]);
 
-        //SiteContato::create($request->all());
+        SiteContato::create($request->all());
+        return redirect()->route('site.index');
     }
 
     public function contato(){
