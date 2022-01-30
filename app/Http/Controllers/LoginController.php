@@ -10,7 +10,24 @@ class LoginController extends Controller
         return view('site.login', ['titulo'=> 'Login']);
     }
 
-    public function autenticar(){
-        return 'Até aqui nos ajudou o Senhor.';
+    public function autenticar(Request $request){
+        
+        //regras de validação
+        $regras = [
+            'usuario' => 'email',
+            'senha' => 'required'
+        ];
+
+        //feedback de validação
+
+        $feedback = [
+            'usuario.email' => 'Informe um e-mail válido.',
+            'senha.required' => 'O campo senha precisa ser preenchido.'
+        ];
+
+        $request->validate($regras, $feedback);
+
+        print_r($request->all());
+
     }
 }
