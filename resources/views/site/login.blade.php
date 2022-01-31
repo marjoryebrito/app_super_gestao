@@ -21,6 +21,7 @@
         <input name="senha" value= "{{ old('senha') }}" type="password" placeholder="Senha" class="borda-preta">
         <button type="submit" class="borda-preta" >Acessar</button>
     </form>
+        {{ isset($erro) && $erro != '' ? $erro : ''}}
 </div>
    
 
