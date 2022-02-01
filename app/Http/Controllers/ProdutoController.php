@@ -40,7 +40,23 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        $regras = [
+            'nome'=>'required',
+            'descricao'=>'required',
+            'peso'=>'required',
+            'unidade_id'=>'exists:unidades,id'
+        ];
+        $feedback = [
+            'required'=>   'O campo ":attribute" precisa ser preenchido.',
+            'unidade_id.exists'=>'Opção Inválida.'
+        ];
+
+        $request->validate($regras, $feedback);
+
+        Produto::create($request->all());
+        return redirect()->route('produto.index');
     }
 
     /**
