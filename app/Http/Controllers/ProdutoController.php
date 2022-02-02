@@ -79,7 +79,11 @@ class ProdutoController extends Controller
     public function edit(Produto $produto)
     {
         $unidades = Unidade::all();
-        return view('app.produto.edit', ['produto'=>$produto, 'unidades'=>$unidades]);
+        //Modo antigo
+       // return view('app.produto.edit', ['produto'=>$produto, 'unidades'=>$unidades]);
+
+       //Modo reutilizando o formulário de cadastro
+       return view('app.produto.create', ['produto'=>$produto, 'unidades'=>$unidades]);
     }
 
     /**
