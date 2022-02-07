@@ -50,8 +50,9 @@
                 </tbody>
             </table>
           
-            {{$produtos->appends($request)->links()}}
+           
         </div>
+        {{$produtos->appends($request)->links()}}
     </div>
 </div>
 
