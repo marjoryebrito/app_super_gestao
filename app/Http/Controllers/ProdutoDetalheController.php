@@ -57,14 +57,14 @@ class ProdutoDetalheController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ProdutoDetalhe produtoDetalhe
+     * @param  \App\ProdutoDetalhe produto_detalhe
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProdutoDetalhe $produtoDetalhe)
+    public function edit(ProdutoDetalhe $produto_detalhe)
     {
         $unidades = Unidade::all();
 
-        return view('app.produto_detalhe.edit',['produtoDetalhe'=>$produtoDetalhe, 'unidades'=>$unidades]);
+        return view('app.produto_detalhe.edit',['produto_detalhe'=>$produto_detalhe, 'unidades'=>$unidades]);
     }
 
     /**
