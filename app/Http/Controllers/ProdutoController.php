@@ -19,7 +19,7 @@ class ProdutoController extends Controller
     {
         $produtos = Produto::paginate(10);
 
-        foreach($produtos as $key => $produto){
+       /* foreach($produtos as $key => $produto){
             $produtoDetalhe = ProdutoDetalhe::where('produto_id', $produto->id)->first();
 
             if(isset($produtoDetalhe)){
@@ -29,7 +29,7 @@ class ProdutoController extends Controller
                
             }
 
-        }
+        }*/
 
        
 
