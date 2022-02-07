@@ -27,7 +27,6 @@ class ProdutoDetalheController extends Controller
     {
         $unidades = Unidade::all();
 
-        
         return view('app.produto_detalhe.create', ['unidades'=> $unidades]);
     }
 
@@ -58,24 +57,27 @@ class ProdutoDetalheController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\ProdutoDetalhe produtoDetalhe
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(ProdutoDetalhe $produtoDetalhe)
     {
-        //
+        $unidades = Unidade::all();
+
+        return view('app.produto_detalhe.edit',['produtoDetalhe'=>$produtoDetalhe, 'unidades'=>$unidades]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\ProdutoDetalhe $produtoDetalhe
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, ProdutoDetalhe $produtoDetalhe)
     {
-        //
+        $produtoDetalhe->update($request->all());
+        echo 'Atualização realizada com sucesso!';
     }
 
     /**
