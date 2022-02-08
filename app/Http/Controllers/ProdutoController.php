@@ -6,6 +6,7 @@ use App\Produto;
 use \App\Unidade;
 use \App\ProdutoDetalhe;
 use \App\Item;
+use \App\Fornecedores;
 use Illuminate\Http\Request;
 
 
@@ -32,7 +33,8 @@ class ProdutoController extends Controller
     public function create()
     {
         $unidades = Unidade::all();
-        return view('app.produto.create', ['unidades'=>$unidades]);
+        $fornecedores = Fornecedores::all();
+        return view('app.produto.create', ['unidades'=>$unidades, 'fornecedores'=>$fornecedores]);
     }
 
     /**
@@ -58,7 +60,7 @@ class ProdutoController extends Controller
 
         $request->validate($regras, $feedback);
 
-        Produto::create($request->all());
+        Item::create($request->all());
         return redirect()->route('produto.index');
     }
 
@@ -83,8 +85,9 @@ class ProdutoController extends Controller
     public function edit(Produto $produto)
     {
         $unidades = Unidade::all();
+        $fornecedores = Fornecedores::all();
         //Modo 1
-        return view('app.produto.edit', ['produto'=>$produto, 'unidades'=>$unidades]);
+        return view('app.produto.edit', ['produto'=>$produto, 'unidades'=>$unidades, 'fornecedores'=>$fornecedores]);
 
        //Modo reutilizando o formulário de cadastro
        //return view('app.produto.create', ['produto'=>$produto, 'unidades'=>$unidades]);
@@ -94,11 +97,29 @@ class ProdutoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Produto  $produto
+     * @param  \App\Item $produto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Produto $produto)
+    public function update(Request $request, Item $produto)
     {
+
+
+        $regras = [
+            'nome'=>'required',
+            'descricao'=>'required',
+            'peso'=>'required',
+            'unidade_id'=>'exists:unidades,id',
+            'fornecedor_id'=>'exists:fornecedores,id'
+        ];
+        $feedback = [
+            'required'=>   'O campo ":attribute" precisa ser preenchido.',
+            'unidade_id.exists'=>'Opção Inválida.',
+            'fornecedor_id.exists'=>'Opção Inválida.'
+        ];
+
+        $request->validate($regras, $feedback);
+
+
        $produto->update($request->all());
 
        return redirect()->route('produto.show', ['produto'=>$produto->id]);
