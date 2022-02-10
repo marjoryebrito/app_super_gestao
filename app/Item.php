@@ -18,4 +18,8 @@ class Item extends Model
     public function fornecedor(){
         return $this->belongsTo('\App\Fornecedores');
     }
+
+    public function pedidos(){
+        return $this->belongsToMany('\App\Pedido', 'pedido_produtos', 'produto_id', 'pedido_id');
+    }
 }
