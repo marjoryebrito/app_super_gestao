@@ -12,8 +12,8 @@
 
     
 </select>
-
-
+{{$errors->has('quantidade') ? $errors->first('quantidade') : ''}}
+<input type="number" name="quantidade" value="{{old('quantidade') ? old('quantidade') : ''}}" placeholder="Quantidade" class="borda-preta"/>
 
 <button type="submit" class="borda-preta">Cadastrar</button>
 </form>
